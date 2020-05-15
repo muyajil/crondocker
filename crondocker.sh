@@ -11,13 +11,13 @@ fi
 touch /crondocker.log
 
 # Remove empty lines from crontab
-sed '/^$/d' -i /crontab
+sed '/^$/d' /crontab > /crontab.noempty
 
 # Append log directive to each command in crontab
-sed -e 's/$/ >> /crondocker.log 2>&1/' -i /crontab
+awk '{print $0, ">> /crondocker.log 2>&1"}' /crontab.noempty > /crontab.formatted
 
 # Registering the new crontab
-crontab /crontab
+crontab /crontab.formatted
 
 # Starting the cron
 /usr/sbin/service cron start
