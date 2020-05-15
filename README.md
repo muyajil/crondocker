@@ -19,11 +19,12 @@ Docker container specifically to run cronjobs
   - Derive from this image
   - Install your dependencies
   - Add a file `crontab` which contains your cronjobs
+  - Add any files you want to use within the container
   - Add the following to your `docker-compose.yml`:
 ```
 services:
   crondocker:
-    build: ./
+    build: ./crondocker
     image_name: crondocker-custom
     volumes:
       - "./crondocker/crontab:/crontab"
