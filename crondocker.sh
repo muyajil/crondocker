@@ -7,6 +7,9 @@ then
     exit
 fi
 
+# Save environment variables for cron to see
+printenv > /etc/environment
+
 # Ensure the log file exists
 touch /crondocker.log
 
