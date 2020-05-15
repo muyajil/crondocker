@@ -30,3 +30,4 @@ services:
       - "./crondocker/crontab:/crontab"
       - "/other/needed/volume/:/other/needed/path/"
 ```
+  - Here you can see an example on how to set it up: https://github.com/muyajil/muyflix/tree/master/crondocker
